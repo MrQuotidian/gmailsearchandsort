@@ -1,6 +1,8 @@
 public class Email
 {
-	public Email(String date, from, subject, content)
+	private String date, from, subject, content;
+
+	public Email(String date, String from, String subject, String content)
 	{
 		this.date = date;
 		this.from = from;
@@ -18,7 +20,7 @@ public class Email
 		return this.from;
 	}
 	
-	public getSubject()
+	public String getSubject()
 	{
 		return this.subject;
 	}
