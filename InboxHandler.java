@@ -11,6 +11,9 @@ import javax.mail.search.FlagTerm;
 
 public class InboxHandler
 {
+	private int count;
+	private ArrayList<Email> boxmail;
+
 	public static ArrayList<Email> getMail(Folder inbox)
 	{
 		double n = 0, emailCount;
@@ -67,6 +70,24 @@ public class InboxHandler
 		return emails;
 	}
 	
+	public static UnionFind findSender(String addr, ArrayList<Email> mail)
+	{
+		Email x, y;
+		UnionFind uf = new UnionFind(mail.size());
+	
+		int i = 0;
+		for(Email email:mail)
+		{
+			x = mail.get(i);
+			y = mail.get(i+1);
+			if(x.getFrom() == y.getFrom())
+				uf.union(x,y);
+			i++;
+		}
+		
+		return uf;
+	}	
+	
 	public boolean createFolder(Folder parent, String folderName)   
 	{   
 		boolean isCreated = true;   
@@ -86,4 +107,20 @@ public class InboxHandler
 		} 	  	
 		return isCreated;
 	}
+	
+	// public Box(int Count, Arraylist<Email> Emails)
+	// {
+		// count = Count;
+		// boxmail = Emails;
+	// }
+	
+	// public ArrayList<Email> getEmails(){
+		// return boxmail;
+	// }
+		
+	// public int getCount(){
+		// return count;
+	// }
+
+		
 }

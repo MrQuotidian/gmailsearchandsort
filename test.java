@@ -23,6 +23,7 @@ public class test
 {
 	public static void main(String[] args)
 	{
+		UnionFind uf;
 		ArrayList<Email> inboxList = new ArrayList<Email>();
 		String user, pass = "";
 		
@@ -60,6 +61,10 @@ public class test
 			System.out.println(e.toString());
 			System.exit(2);
 		}
+		
+		String addr = console.readLine(("[Enter email address to find]: "));
+		uf = InboxHandler.findSender(addr, inboxList);
+		System.out.println(uf.count() + " emails from this sender.");
 
     }
 }
