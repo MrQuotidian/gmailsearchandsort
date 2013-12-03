@@ -1,0 +1,5 @@
+TO DO:
+1) Create Email class [DONE]
+2) Fit all emails into arraylist
+3) Iterate through to find common addresses
+4) Continue based on progress
